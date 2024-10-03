@@ -12,6 +12,8 @@ public interface StudentServicei {
 
 	List<Student> loginStudent();
 
+    void onDelete(int studentId);
+
 
 
 }

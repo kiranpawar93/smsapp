@@ -32,6 +32,12 @@ public class StudentServiceimpl implements StudentServicei {
 		return sr.findAll();
 	}
 
+	@Override
+	public void onDelete(int studentId) {
+		sr.deleteById(studentId);
+		
+	}
+
 
 
 

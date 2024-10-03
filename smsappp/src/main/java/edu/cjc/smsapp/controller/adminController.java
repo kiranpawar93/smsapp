@@ -44,6 +44,14 @@ public class adminController {
 		
 		return"adminscreen";
 	}
+	@RequestMapping("/remove")
+	public String onRemove(@RequestParam("StudentId")int StudentId,Model m) {
+		ssi.onDelete(StudentId);
+		List<Student>list=ssi.loginStudent();
+		m.addAttribute("data", list);
+		
+		return"adminscreen";
+	}
 
 }
 
