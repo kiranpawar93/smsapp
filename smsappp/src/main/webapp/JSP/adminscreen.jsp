@@ -32,7 +32,7 @@ form {
 .table-container {
 	background-image:
 		url("https://media.istockphoto.com/id/1139420720/photo/neat-workplace-for-woman-with-wooden-table-laptop-computer-and-a-flower.jpg?s=612x612&w=0&k=20&c=sdAwv0bV3rLD6Vn6iTXKnipLPLeGlPHah-WCWw4R4YQ=");
-	height: 150vh;
+	height: 100vh;
 	background-size: cover;
 	background-repeat: no-repeat;
 
@@ -43,6 +43,20 @@ function remove(){
 	
 	document.fn.action="/remove";
 	document.action.submit();
+	
+}
+function fees(){
+	
+	document.fn.action="/fees";
+	document.action.submit();
+	
+}
+
+function batch(){
+	
+	document.fn.action="/batch";
+	document.action.submit();
+	
 }
 </script>
 
@@ -184,7 +198,7 @@ function remove(){
 									</div>
 
 									<div class="mt-2 pt-2 d-flex justify-content-center">
-										<input class="btn btn-primary btn-lg" type="submit"
+										<input class="btn btn-primary" type="submit"
 											value="Submit" />
 									</div>
 
@@ -195,11 +209,11 @@ function remove(){
 				</div>
 			</div>
 		</section>
-		<section class="table-container table table-hover " id="view"|>
+		<section class="table-container" id="view"|>
 		<h1 class=" text-center">Student info..!</h1>
 		<form name="fn">
 
-				<table border="1" class=" table-bordered " >
+				<table border="1" class=" table-bordered fs-6 w-100" >
 					<thead>
 						<tr>
 							<th>StudentId</th>
@@ -234,8 +248,8 @@ function remove(){
 									value="${s.studentId}"></td>
 									<td>
 									<div class="d-flex justify-content-between p-1 border border-success">
-									<button class="btn btn-outline-primary">fees</button>
-									<button class="btn btn-outline-danger">batch</button>
+									<button class="btn btn-outline-primary" onClick="fees()">fees</button>
+									<button class="btn btn-outline-danger" onClick="batch()">batch</button>
 									<button class="btn btn-outline-warning" onClick="remove()">remove</button>
 									</div>
 									</td>

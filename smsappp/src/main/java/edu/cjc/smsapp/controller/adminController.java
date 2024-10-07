@@ -38,9 +38,11 @@ public class adminController {
 		
 	}
 	@RequestMapping("/enroll_student")
-	public String saveStudent(@ModelAttribute Student s) {
+	public String saveStudent(@ModelAttribute Student s,Model m) {
 		
 		ssi.saveStudentDetails(s);
+		List<Student>list=ssi.loginStudent();
+		m.addAttribute("data", list);
 		
 		return"adminscreen";
 	}
@@ -52,6 +54,35 @@ public class adminController {
 		
 		return"adminscreen";
 	}
+	@RequestMapping("/fees")
+	public String onfees(@RequestParam int StudentId,Model m) {
+		Student student=ssi.getsingleStudent(StudentId);
+		m.addAttribute("s", student);
+		return"fees";
+	}
+    @RequestMapping("/payfees")
+	public String addinstailment(@RequestParam int studentId,@RequestParam float ammount,Model m) {
+    	ssi.payfees(studentId,ammount);
+		List<Student>list=ssi.loginStudent();
+		m.addAttribute("data", list);
+    	
+    	return"adminscreen";
+		
+	}
+    @RequestMapping("/batch")
+    public String onbatch(@RequestParam int StudentId,Model m) {
+    	Student student=ssi.getsingleStudent(StudentId);
+    	m.addAttribute("s", student);
+    	
+    	return"batch";
+    }
+    @RequestMapping("/batchshift")
+    public String onbatchshift(@RequestParam int studentId,@RequestParam String batch,Model m ) {
+    	ssi.batchshift(studentId,batch);
+		List<Student>list=ssi.loginStudent();
+		m.addAttribute("data", list);
+    	return"adminscreen";
+    }
 
 }
 

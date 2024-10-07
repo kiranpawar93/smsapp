@@ -21,7 +21,7 @@ public class Student {
 	private String studentEmail;
 	private int studentAge;
 	private String studentCollageName;
-	private String feesPaid;
+	private float feesPaid;
 	private String studentCourse;
 	private String batchMode;
 	private String batchNumber;
